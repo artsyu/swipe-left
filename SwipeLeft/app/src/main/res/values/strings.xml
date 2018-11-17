@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">SwipeLeft</string>
     <string name="units">swipes left…</string>
-    <string name="swipes">214</string>
+    <string name="swipes">5</string>
     <string name="subtract">—</string>
     <string name="add">+</string>
 </resources>
