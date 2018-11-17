@@ -50,14 +50,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         View loginContainer = findViewById(R.id.form_btn);
         Button buttonLogin =  findViewById(R.id.login_btn);
-
-
         ViewGroup loginViews = findViewById(R.id.login_views);
 
-
-        final FrameLayout rootView = findViewById(R.id.root_view);
+        final FrameLayout rootView = findViewById(R.id.setting_view);
 
         morphAnimationLogin = new MorphAnimation(loginContainer, rootView, loginViews);
 

@@ -6,9 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-/**
- * Created by thali on 11/17/2018.
- */
 
 public class MorphAnimation {
 
