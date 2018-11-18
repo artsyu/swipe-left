@@ -1,25 +1,30 @@
 package com.aiyaa.swipeleft;
 
-/**
- * Created by thali on 11/17/2018.
- */
 
+import android.graphics.Typeface;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class CustomOnItemSelectedListener implements OnItemSelectedListener {
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos,long id) {
+        parent.setSelection(pos);
+        View v = parent.getSelectedView();
+        ((TextView)v).setTextColor(view.getResources().getColor(R.color.colorPrimaryDark));
+        ((TextView)v).setTextSize(25);
+
         Toast.makeText(parent.getContext(),
-                "OnItemSelectedListener : " + parent.getItemAtPosition(pos).toString(),
+                parent.getItemAtPosition(pos).toString() + " plan selected",
                 Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> arg0) {
-        // TODO Auto-generated method stub
+
+
     }
 
 }

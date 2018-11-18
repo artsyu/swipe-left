@@ -10,12 +10,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 
 public class MainActivity extends AppCompatActivity {
 
-    private MorphAnimation morphAnimationLogin;
+    private MorphAnimation morphAnimationSetting;
 
 
     @Override
@@ -23,6 +21,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        turnOnSubtractButton();
+        turnOnAddButton();
+        turnOnSettingButton();
+        turnOnSaveButton();
+
+        Spinner planDropdown = findViewById(R.id.planDropdown);
+        planDropdown.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+
+    }
+
+    public void turnOnSubtractButton(){
         Button subtractButton = findViewById(R.id.subtract);
         subtractButton.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -37,7 +46,14 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "You don't have any swipes left already!!!", Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
+    public void turnOffSubtractButton() {
+        Button subtractButton = findViewById(R.id.subtract);
+        subtractButton.setOnClickListener(null);
+    }
+
+    public void turnOnAddButton() {
         Button addButton = findViewById(R.id.add);
         addButton.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -50,34 +66,66 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "wHY DId u aDd A sWIpE", Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
+    public void turnOffAddButton() {
+        Button addButton = findViewById(R.id.add);
+        addButton.setOnClickListener(null);
+    }
 
-
+    public void turnOnSettingButton(){
         View loginContainer = findViewById(R.id.form_btn);
-        Button buttonLogin =  findViewById(R.id.login_btn);
-        ViewGroup loginViews = findViewById(R.id.login_views);
+        final Button settingButton =  findViewById(R.id.setting_button);
+        ViewGroup loginViews = findViewById(R.id.setting_views);
 
         final FrameLayout rootView = findViewById(R.id.setting_view);
 
-        morphAnimationLogin = new MorphAnimation(loginContainer, rootView, loginViews);
+        morphAnimationSetting = new MorphAnimation(loginContainer, rootView, loginViews);
 
-
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+        settingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!morphAnimationLogin.isPressed()) {
-                    morphAnimationLogin.morphIntoForm();
+                if (!morphAnimationSetting.isPressed()) {
+                    morphAnimationSetting.morphIntoForm();
+                    turnOffSettingButton();
+                    turnOffAddButton();
+                    turnOffSubtractButton();
                 } else {
-                    morphAnimationLogin.morphIntoButton();
+                    morphAnimationSetting.morphIntoButton();
                 }
             }
         });
+    }
 
+    public void turnOffSettingButton(){
+        final Button settingButton =  findViewById(R.id.setting_button);
+        settingButton.setOnClickListener(null);
+    }
 
-        Spinner planDropdown = findViewById(R.id.planDropdown);
-        planDropdown.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+    public void turnOnSaveButton() {
+        View loginContainer = findViewById(R.id.form_btn);
+        final Button settingButton =  findViewById(R.id.setting_button);
+        final Button saveButton = findViewById(R.id.saveButton);
+        ViewGroup loginViews = findViewById(R.id.setting_views);
 
+        final FrameLayout rootView = findViewById(R.id.setting_view);
 
+        morphAnimationSetting = new MorphAnimation(loginContainer, rootView, loginViews);
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                morphAnimationSetting.morphIntoButton();
+                turnOnSettingButton();
+                turnOnAddButton();
+                turnOnSubtractButton();
+            }
+        });
+    }
+
+    public void turnOffSaveButton() {
+        final Button saveButton = findViewById(R.id.saveButton);
+        saveButton.setOnClickListener(null);
     }
 }
 
