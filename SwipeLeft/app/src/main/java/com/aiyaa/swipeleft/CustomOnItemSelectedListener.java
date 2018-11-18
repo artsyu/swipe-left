@@ -14,9 +14,9 @@ public class CustomOnItemSelectedListener implements OnItemSelectedListener {
         ((TextView)v).setTextColor(view.getResources().getColor(R.color.colorPrimaryDark));
         ((TextView)v).setTextSize(25);
 
-        Toast.makeText(parent.getContext(),
-                parent.getItemAtPosition(pos).toString() + " plan selected",
-                Toast.LENGTH_SHORT).show();
+//        Toast.makeText(parent.getContext(),
+//                parent.getItemAtPosition(pos).toString() + " plan selected",
+//                Toast.LENGTH_SHORT).show();
         MainActivity.selectedPlan = pos;
 
 

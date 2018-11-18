@@ -1,23 +1,15 @@
 package com.aiyaa.swipeleft;
 
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -114,13 +106,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void turnOnSettingButton(){
-        View loginContainer = findViewById(R.id.form_btn);
-        final Button settingButton =  findViewById(R.id.setting_button);
-        ViewGroup loginViews = findViewById(R.id.setting_views);
-
         final FrameLayout rootView = findViewById(R.id.setting_view);
+        View cardviewContainer = findViewById(R.id.form_btn);
+        final Button settingButton =  findViewById(R.id.setting_button);
+        ViewGroup verticalLinearView = findViewById(R.id.vert_linear_view);
+        ViewGroup buttonView = findViewById(R.id.button_view);
 
-        morphAnimationSetting = new MorphAnimation(loginContainer, rootView, loginViews);
+        morphAnimationSetting = new MorphAnimation(cardviewContainer, rootView, verticalLinearView, buttonView);
 
         settingButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,14 +135,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void turnOnSaveButton() {
-        View loginContainer = findViewById(R.id.form_btn);
-        final Button settingButton =  findViewById(R.id.setting_button);
-        final Button saveButton = findViewById(R.id.saveButton);
-        ViewGroup loginViews = findViewById(R.id.setting_views);
-
         final FrameLayout rootView = findViewById(R.id.setting_view);
+        View cardviewContainer = findViewById(R.id.form_btn);
+        final Button saveButton =  findViewById(R.id.saveButton);
+        ViewGroup verticalLinearView = findViewById(R.id.vert_linear_view);
+        ViewGroup buttonView = findViewById(R.id.button_view);
 
-        morphAnimationSetting = new MorphAnimation(loginContainer, rootView, loginViews);
+        morphAnimationSetting = new MorphAnimation(cardviewContainer, rootView, verticalLinearView, buttonView);
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override

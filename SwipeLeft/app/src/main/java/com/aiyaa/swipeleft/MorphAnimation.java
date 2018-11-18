@@ -12,6 +12,7 @@ public class MorphAnimation {
     private final FrameLayout parentView;
     private View buttonContainer;
     private ViewGroup viewsContainer;
+    private ViewGroup viewsContainer2;
 
     private boolean isPressed;
     private int initialWidth;
@@ -21,10 +22,11 @@ public class MorphAnimation {
         return isPressed;
     }
 
-    public MorphAnimation(View buttonContainer, FrameLayout parentView, ViewGroup viewsContainer) {
+    public MorphAnimation(View buttonContainer, FrameLayout parentView, ViewGroup viewsContainer, ViewGroup viewsContainer2) {
         this.buttonContainer = buttonContainer;
         this.parentView = parentView;
         this.viewsContainer = viewsContainer;
+        this.viewsContainer2 = viewsContainer2;
 
         LayoutTransition layoutTransition = parentView.getLayoutTransition();
         layoutTransition.setDuration(400);
@@ -48,12 +50,20 @@ public class MorphAnimation {
             viewsContainer.getChildAt(i).setVisibility(View.VISIBLE);
         }
 
+        for (int i = 1; i < viewsContainer2.getChildCount(); i++) {
+            viewsContainer2.getChildAt(i).setVisibility(View.VISIBLE);
+        }
+
         isPressed = true;
     }
 
     public void morphIntoButton() {
         for (int i = 1; i < viewsContainer.getChildCount(); i++) {
             viewsContainer.getChildAt(i).setVisibility(View.GONE);
+        }
+
+        for (int i = 1; i < viewsContainer2.getChildCount(); i++) {
+            viewsContainer2.getChildAt(i).setVisibility(View.GONE);
         }
 
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) buttonContainer.getLayoutParams();
