@@ -64,24 +64,25 @@
                     android:id="@+id/button_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
                     android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/cancelButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/colorPrimaryDark"
+                            android:text="Cancel"
+                            android:layout_gravity="left"
+                            android:textColor="@android:color/white"
+                            android:visibility="gone" />
                         <Button
                             android:id="@+id/saveButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:backgroundTint="@color/colorPrimaryDark"
                             android:text="Save"
-                            android:layout_gravity="center"
-                            android:textColor="@android:color/white"
-                            android:visibility="gone" />
-                        <Button
-                            android:id="@+id/cancelButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:backgroundTint="@color/colorPrimaryDark"
-                            android:text="Cancel"
-                            android:layout_gravity="center"
+                            android:layout_gravity="right"
                             android:textColor="@android:color/white"
                             android:visibility="gone" />
 

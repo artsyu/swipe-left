@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         turnOnAddButton();
         turnOnSettingButton();
         turnOnSaveButton();
+        turnOnCancelButton();
 
         Spinner planDropdown = findViewById(R.id.planDropdown);
         planDropdown.setOnItemSelectedListener(new CustomOnItemSelectedListener());
@@ -159,6 +160,31 @@ public class MainActivity extends AppCompatActivity {
     public void turnOffSaveButton() {
         final Button saveButton = findViewById(R.id.saveButton);
         saveButton.setOnClickListener(null);
+    }
+
+    public void turnOnCancelButton() {
+        final FrameLayout rootView = findViewById(R.id.setting_view);
+        View cardviewContainer = findViewById(R.id.form_btn);
+        final Button cancelButton =  findViewById(R.id.cancelButton);
+        ViewGroup verticalLinearView = findViewById(R.id.vert_linear_view);
+        ViewGroup buttonView = findViewById(R.id.button_view);
+
+        morphAnimationSetting = new MorphAnimation(cardviewContainer, rootView, verticalLinearView, buttonView);
+
+        cancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                morphAnimationSetting.morphIntoButton();
+                turnOnSettingButton();
+                turnOnAddButton();
+                turnOnSubtractButton();
+            }
+        });
+    }
+
+    public void turnOffCancelButton() {
+        final Button cancelButton = findViewById(R.id.cancelButton);
+        cancelButton.setOnClickListener(null);
     }
 
     public void updateCounter() {

@@ -50,7 +50,7 @@ public class MorphAnimation {
             viewsContainer.getChildAt(i).setVisibility(View.VISIBLE);
         }
 
-        for (int i = 1; i < viewsContainer2.getChildCount(); i++) {
+        for (int i = 0; i < viewsContainer2.getChildCount(); i++) {
             viewsContainer2.getChildAt(i).setVisibility(View.VISIBLE);
         }
 
@@ -62,7 +62,7 @@ public class MorphAnimation {
             viewsContainer.getChildAt(i).setVisibility(View.GONE);
         }
 
-        for (int i = 1; i < viewsContainer2.getChildCount(); i++) {
+        for (int i = 0; i < viewsContainer2.getChildCount(); i++) {
             viewsContainer2.getChildAt(i).setVisibility(View.GONE);
         }
 
