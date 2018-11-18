@@ -4,4 +4,13 @@
     <string name="swipes">5</string>
     <string name="subtract">—</string>
     <string name="add">+</string>
+    <string name="choosePlan">choose plan</string>
+
+    <string-array name="plans">
+        <item>19P</item>
+        <item>19R</item>
+        <item>14P</item>
+        <item>14R</item>
+        <item>11R</item>
+    </string-array>
 </resources>
