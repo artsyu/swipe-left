@@ -1,7 +1,5 @@
 package com.aiyaa.swipeleft;
 
-
-import android.graphics.Typeface;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
@@ -19,6 +17,9 @@ public class CustomOnItemSelectedListener implements OnItemSelectedListener {
         Toast.makeText(parent.getContext(),
                 parent.getItemAtPosition(pos).toString() + " plan selected",
                 Toast.LENGTH_SHORT).show();
+        MainActivity.selectedPlan = pos;
+
+
     }
 
     @Override
