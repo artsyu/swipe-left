@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 int count = Integer.parseInt(currentCounter);
 
                 swipes.setText("" + ++count);
-                Toast.makeText(getApplicationContext(), "wHY DId u aDd A sWIpE", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "wHY DId u aDd A sWIpE ow0", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -205,10 +205,14 @@ public class MainActivity extends AppCompatActivity {
         TextView swipes = findViewById(R.id.swipeCounter);
         String currentCount = swipes.getText().toString();
 
+        Spinner planDropdown = findViewById(R.id.planDropdown);
+        int plan = planDropdown.getSelectedItemPosition();
+
         SharedPreferences mPrefs = getSharedPreferences("preferences.xml", MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         prefsEditor.putString("counter", currentCount);
-        prefsEditor.putInt("plan", selectedPlan);
+
+        prefsEditor.putInt("plan", plan);
         prefsEditor.apply();
     }
 
